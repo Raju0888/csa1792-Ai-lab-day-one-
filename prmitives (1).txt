@@ -1,0 +1,98 @@
+activity main.xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="86dp"
+        android:text="Primitives" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="102dp"
+        android:text="Search" />
+
+</RelativeLayout>
+
+
+
+Main Activity
+
+
+
+package com.example.primitives;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.os.Bundle;
+import android.view.View;
+public class MainActivity extends Activity
+{
+@Override
+public void onCreate(Bundle savedInstanceState)
+{
+super.onCreate(savedInstanceState);
+setContentView(new myview(this));
+}
+private class myview extends View
+{
+public myview(Context context)
+{
+super(context);
+}
+@Override
+protected void onDraw(Canvas canvas)
+{
+super.onDraw(canvas);
+Paint paint=new Paint();
+paint.setTextSize(40);
+paint.setColor(Color.RED);
+canvas.drawText("Circle", 55, 30, paint);
+paint.setColor(Color.GREEN);
+canvas.drawCircle(100,150,100, paint);
+paint.setColor(Color.RED);
+canvas.drawText("Rectangle", 255, 30, paint);
+paint.setColor(Color.RED);
+canvas.drawRect(250, 50,400,350, paint);
+paint.setColor(Color.RED);
+canvas.drawText("SQUARE", 55, 430, paint);
+paint.setColor(Color.BLUE);
+canvas.drawRect(50, 450,150,550, paint);
+paint.setColor(Color.RED);
+canvas.drawText("LINE", 255, 430, paint);
+paint.setColor(Color.CYAN);
+canvas.drawLine(250, 500, 350, 500, paint);
+}
+}
+}
